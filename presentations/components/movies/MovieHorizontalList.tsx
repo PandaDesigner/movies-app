@@ -6,7 +6,6 @@ interface Props {
     movies: Movie[]
     label?: string;
     className?: string;
-
     loadNextPage?: () => void;
 }
 

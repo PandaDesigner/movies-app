@@ -1,8 +1,8 @@
 import {useInfiniteQuery, useQuery} from "@tanstack/react-query";
-import {nowPlayingAction} from "@/core/actions/now-playing.action";
-import {popularMovieAction} from "@/core/actions/popular.action";
-import {topRatedMovieAction} from "@/core/actions/top-rated.action";
-import {upcomingMovieAction} from "@/core/actions/upcoming.action";
+import {nowPlayingAction} from "@/core/actions/movies/now-playing.action";
+import {popularMovieAction} from "@/core/actions/movies/popular.action";
+import {topRatedMovieAction} from "@/core/actions/movies/top-rated.action";
+import {upcomingMovieAction} from "@/core/actions/movies/upcoming.action";
 
 
 export const useMovies = () => {

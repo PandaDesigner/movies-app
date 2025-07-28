@@ -31,11 +31,23 @@ const HomeScreen = () => {
                 { /* Carousel Movies Section can be added here later */}
                 <MainSliderShow movies={ nowPlayingQuery.data ?? [] } />
                 { /* A horizontal list of movies can be added here later */}
-                <MovieHorizontalList movies={popularQuery.data?.pages.flat() ?? []} label="Populares" loadNextPage={popularQuery.fetchNextPage} />
+                <MovieHorizontalList
+                    movies={popularQuery.data?.pages.flat() ?? []}
+                    label="Populares"
+                    loadNextPage={popularQuery.fetchNextPage}
+                />
                 {/* Mejores calcification section can be added here later */}
-                <MovieHorizontalList movies={topRatedQuery.data?.pages.flat() ?? []} label="Mejores Calificadas" loadNextPage={topRatedQuery.fetchNextPage} />
+                <MovieHorizontalList
+                    movies={topRatedQuery.data?.pages.flat() ?? []}
+                    label="Mejores Calificadas"
+                    loadNextPage={topRatedQuery.fetchNextPage}
+                />
                 {/* Proximamente section can be added here later */}
-                <MovieHorizontalList movies={upcomingQuery.data?.pages.flat() ?? []} label={"Próximamente en cines"} loadNextPage={upcomingQuery.fetchNextPage}/>
+                <MovieHorizontalList
+                    movies={upcomingQuery.data?.pages.flat() ?? []}
+                    label={"Próximamente en cines"}
+                    loadNextPage={upcomingQuery.fetchNextPage}
+                />
             </View>
         </ScrollView>
     );

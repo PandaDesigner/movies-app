@@ -3,6 +3,8 @@ import {ActivityIndicator, SafeAreaView, ScrollView, Text, View} from "react-nat
 import {useLocalSearchParams} from "expo-router";
 import {useMovieDetail} from "@/presentations/hooks/useMovieDetail";
 import MovieHeader from "@/presentations/components/move/MovieHeader";
+import MovieDescription from "@/presentations/components/move/MovieDescription";
+import CastCreditsDetails from "@/presentations/components/move/CastCreditsDetails";
 
 const MovieScreen = () =>{
     const { id } = useLocalSearchParams();
@@ -18,17 +20,16 @@ if (getMovieById.isLoading || !getMovieById.data) {
         </SafeAreaView>
     );
 }
-console.log('DETAIL MOVIE---> ',JSON.stringify(getMovieById.data, null, 2));
 
     return (
            <ScrollView className={'flex-1'}>
-               <View className={'flex-1'}>
                    <MovieHeader
                       posterPath={getMovieById.data.posterPath}
                       originalTitle={getMovieById.data.originalTitle}
                       title={getMovieById.data.title}
                    />
-               </View>
+               <MovieDescription movie={getMovieById.data} />
+               <CastCreditsDetails idMovie={getMovieById.data.id} />
            </ScrollView>
     )
 };

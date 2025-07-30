@@ -1,6 +1,8 @@
 import {Results} from "@/infrasestructure/interfaces/moviedb.response";
 import {CompleteMovie, Movie} from "@/infrasestructure/interfaces/movie.interface";
 import {MovieDBMovieDetailResponse} from "@/infrasestructure/interfaces/moviedb-movie-detail.response";
+import {ICast} from "@/infrasestructure/interfaces/cast.interface";
+import { MovieDBCast } from "@/infrasestructure/interfaces/credits.response";
 
 
 export class MovieMapper {
@@ -31,5 +33,16 @@ export class MovieMapper {
             originalTitle: movie.original_title,
             productionCompanies: movie.production_companies.map(company => company.name)
         }
+    }
+
+    static frontMovieDBCastToEntity(actor: MovieDBCast ):ICast {
+        return {
+            id: actor.id,
+            name: actor.name,
+            character: actor.character,
+            avatarPath: actor.profile_path
+                ? `https://image.tmdb.org/t/p/w500${actor.profile_path}`
+                : 'https://i.stack.imgur.com/l60Hf.png',
+        };
     }
 }

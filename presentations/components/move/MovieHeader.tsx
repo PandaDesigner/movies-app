@@ -2,6 +2,7 @@ import {View, Text, useWindowDimensions, Image, Pressable} from 'react-native'
 import {FC} from "react";
 import {Ionicons} from "@expo/vector-icons";
 import {router} from "expo-router";
+import {LinearGradient} from "expo-linear-gradient";
 
 
 interface MovieHeaderProps {
@@ -18,6 +19,18 @@ const MovieHeader:FC<MovieHeaderProps> = ({
     const { height:screenHeight } = useWindowDimensions();
     return (
     <>
+        <LinearGradient
+            colors={["rgba(0,0,0,0.8)", "transparent"]}
+            style={{
+                zIndex: 99,
+                position: "absolute",
+                height: screenHeight * 0.4,
+                width: "100%",
+            }}
+            start={[0,0]}
+            locations={[0, 0.5]}
+
+        />
         <View style={{
             position:"absolute",
             zIndex:9999,
